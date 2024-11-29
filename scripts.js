@@ -1,5 +1,6 @@
 let humanScore=0;
 let computerScore=0;
+
 function getComputerChoice(max){
     return Math.floor(Math.random() * max);
 }
@@ -19,3 +20,6 @@ if (getComputerChoice(3)===0){
 function getHumanChoice(){
     return prompt('Rock, Paper or Scissors?');
 }
+const MY_CHOICE=getHumanChoice();
+const CAPITALIZED_CHOICE=MY_CHOICE.charAt(0).toUpperCase() +MY_CHOICE.slice(1);
+console.log('You chose '+CAPITALIZED_CHOICE);
