@@ -5,6 +5,12 @@ function playGame(){
         function getComputerChoice(max){
             return Math.floor(Math.random() * max);
         }
+        function getHumanChoice(){
+            return prompt('Rock, Paper or Scissors?');
+        }
+        const MY_CHOICE=getHumanChoice();
+        const CAPITALIZED_CHOICE=MY_CHOICE.charAt(0).toUpperCase() +MY_CHOICE.slice(1);
+        console.log('You chose '+CAPITALIZED_CHOICE);
 
         let compChoice;
         if (getComputerChoice(3)===0){
@@ -20,12 +26,7 @@ function playGame(){
             console.log('Computer chose Scissors');
         }
 
-        function getHumanChoice(){
-            return prompt('Rock, Paper or Scissors?');
-        }
-        const MY_CHOICE=getHumanChoice();
-        const CAPITALIZED_CHOICE=MY_CHOICE.charAt(0).toUpperCase() +MY_CHOICE.slice(1);
-        console.log('You chose '+CAPITALIZED_CHOICE);
+        
 
         function playRound(humanChoice,computerChoice){
             if(humanChoice === computerChoice){
