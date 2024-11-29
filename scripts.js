@@ -1,3 +1,5 @@
+let humanScore=0;
+let computerScore=0;
 function getComputerChoice(max){
     return Math.floor(Math.random() * max);
 }
