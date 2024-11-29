@@ -13,3 +13,7 @@ if (getComputerChoice(3)===0){
     compChoice='Scissors';
     console.log('Computer chose Scissors');
 }
+
+function getHumanChoice(){
+    return prompt('Rock, Paper or Scissors?');
+}
