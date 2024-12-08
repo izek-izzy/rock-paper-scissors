@@ -1,12 +1,21 @@
 function playGame(){       
     let humanScore=0;
     let computerScore=0;
+    const rockBtn = document.querySelector("#rock");
+    const paperBtn = document.querySelector("#paper");
+    const scissorsBtn = document.querySelector("#scissors");
+    const resultDisp = document.querySelector("#result");
+
+    rockBtn.addEventListener('click',() => getHumanChoice('Rock'));
+    paperBtn.addEventListener('click',() => getHumanChoice('Paper'));
+    scissorsBtn.addEventListener('click',() =>getHumanChoice('Scissors'));
+
     for(let i=0;i<5;i++){
         function getComputerChoice(max){
             return Math.floor(Math.random() * max);
         }
         function getHumanChoice(){
-            return prompt('Rock, Paper or Scissors?');
+            return;
         }
         const MY_CHOICE=getHumanChoice();
         const CAPITALIZED_CHOICE=MY_CHOICE.charAt(0).toUpperCase() +MY_CHOICE.slice(1);
