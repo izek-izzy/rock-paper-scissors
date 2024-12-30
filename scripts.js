@@ -18,12 +18,7 @@
 
     const roundDisplay = document.getElementById('round');
     
-    function getHumanChoice(choice){
-        document.querySelector("#userChoice").innerText =
-        "You chose: " + choice;
-        
-
-    }
+    
     function getComputerChoice(max){
             return Math.floor(Math.random() * max);
         }
