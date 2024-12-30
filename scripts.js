@@ -18,7 +18,89 @@
 
     const roundDisplay = document.getElementById('round');
     
-    
+    function playRound(playerChoice) {
+        if (currentRound <= totalRounds){
+            roundDisplay.textContent = `Round: ${currentRound} of ${totalRounds}`;
+            currentRound++;
+            console.log(currentRound);
+
+            const choices = ['rock','paper','scissors'];
+            const computerChoice = choices[Math.floor(Math.random()*choices.length)];
+            if(playerChoice===computerChoice) {
+                console.log('It\'s a tie!');
+                resultDisp.textContent = 'It\'s a tie!';
+            }else if(
+                (playerChoice==='Rock' && computerChoice==='scissors') ||
+                (playerChoice==='paper' && computerChoice==='rock') ||
+                (playerChoice==='scissors' && computerChoice==='paper')
+            )
+            {
+                console.log('You win!');
+                resultDisp.textContent = 'You win!';
+                humanScore++;
+            }else{
+                console.log('You lose!');
+                resultDisp.textContent = 'You lose!';
+                computerScore++;
+            }
+            playerScoreDisplay.textContent = `Player Score: ${humanScore}`;
+            computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+        }
+        if(currentRound > totalRounds){
+            concludeGame();
+        }
+    }
+
+    function concludeGame() {
+        const gameContainer = document.getElementById('rps-game');
+        const choices = document.getElementById('choices');
+        const gameInfo = document.getElementById('game-info');
+        const roundRes = document.getElementById('result');
+        if (choices) {
+            choices.style.display = 'none';
+        }
+        if (gameInfo) {
+            gameInfo.style.display = 'none';
+        }
+        if (roundRes) {
+            roundRes.style.display = 'none';
+        }
+        const gameOver = document.createElement('div');
+        gameOver.setAttribute('id','game-over');
+
+        let finalMessage = "";
+        if (playerScore > computerScore) {
+            finalMessage = 'Congratulations, You won!';
+        }else if (playerScore < computerScore) {
+            finalMessage = 'Computer won!';
+        }else{
+            finalMessage = 'It\'s a tie!';
+        }
+        gameOver.innerHTML = 
+        `<h2>Game Over</h2>
+        <p>${finalMessage}</p>
+        <p>Player Score: ${humanScore}</p>
+        <p>Computer Score: ${computerScore}</p>
+        <button id="restart-btn">Play Again</button>`;
+        gameContainer.appendChild(gameOver);
+        document.getElementById('restart-btn').addEventListener('click', restartGame
+        );
+
+    }
+
+    function restartGame() {
+        playerScore = 0;
+        computerScore = 0;
+        currentRound = 1;
+
+        playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+        computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+        roundDisplay.textContent = `Round: ${currentRound} of ${totalRounds}`;
+
+        const choices = document.getElementById('choices');
+        const gameInfo = docume
+        
+    }
     function getComputerChoice(max){
             return Math.floor(Math.random() * max);
         }
