@@ -1,37 +1,48 @@
-function playGame(){       
+     
     let humanScore=0;
     let computerScore=0;
-    const rockBtn = document.querySelector("#rock");
-    const paperBtn = document.querySelector("#paper");
-    const scissorsBtn = document.querySelector("#scissors");
-    const resultDisp = document.querySelector("#result");
+    const rockBtn = document.getElementById('rock');
+    const paperBtn = document.getElementById('paper');
+    const scissorsBtn = document.getElementById('scissors');
+    const resultDisp = document.getElementById('results');
 
-    rockBtn.addEventListener('click',() => getHumanChoice('Rock'));
-    paperBtn.addEventListener('click',() => getHumanChoice('Paper'));
-    scissorsBtn.addEventListener('click',() =>getHumanChoice('Scissors'));
+    rockBtn.addEventListener('click', () => getHumanChoice('Rock'));
+    paperBtn.addEventListener('click', () => getHumanChoice('Paper'));
+    scissorsBtn.addEventListener('click', () => getHumanChoice('Scissors'));
 
-    for(let i=0;i<5;i++){
-        function getComputerChoice(max){
+    const playerScoreDisplay = document.getElementById('player-score');
+    const computerScoreDisplay = document.getElementById('computer-score');
+    
+    function getHumanChoice(choice){
+        document.querySelector("#userChoice").innerText =
+        "You chose: " + choice;
+        
+
+    }
+    function getComputerChoice(max){
             return Math.floor(Math.random() * max);
         }
-        function getHumanChoice(){
-            return;
-        }
+        
+        
         const MY_CHOICE=getHumanChoice();
-        const CAPITALIZED_CHOICE=MY_CHOICE.charAt(0).toUpperCase() +MY_CHOICE.slice(1);
-        console.log('You chose '+CAPITALIZED_CHOICE);
 
         let compChoice;
         if (getComputerChoice(3)===0){
             compChoice='Rock';
+            document.querySelector("#aiChoice").innerText =
+            "Computer chose: Rock!";
             console.log('Computer chose Rock!')
         }
         else if(getComputerChoice(3)===1){
             compChoice='Paper';
+            document.querySelector("#aiChoice").innerText =
+            "Computer chose: Paper!";
             console.log('Computer chose Paper!')
         }
         else{
             compChoice='Scissors';
+            document.querySelector("#aiChoice").innerText =
+            "Computer chose: Scissors!";
             console.log('Computer chose Scissors');
         }
 
@@ -70,12 +81,12 @@ function playGame(){
             }
         }
 
-        const HUMAN_SELECTION=CAPITALIZED_CHOICE;
+        const HUMAN_SELECTION=MY_CHOICE;
         const COMPUTER_SELECTION=compChoice;
         playRound(HUMAN_SELECTION,COMPUTER_SELECTION);
         console.log("Computer's score: "+computerScore);
         console.log('Your score: '+humanScore);
-    }
+    
         console.log('Game Over!')
         if(humanScore>computerScore){
             console.log('Great game! You win!!!');
@@ -86,7 +97,7 @@ function playGame(){
             else{
                 console.log('Its a tie! Play again.')
             }
-    
-}
-playGame();
+
+
+
 

@@ -30,6 +30,7 @@ body{
     font-size: 18px;
     margin: 10px;
     transition: background-color 0.3s;
+    border-radius: 12px;
 }
 
 #choices button:hover{
