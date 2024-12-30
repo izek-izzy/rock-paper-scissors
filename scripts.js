@@ -12,6 +12,11 @@
 
     const playerScoreDisplay = document.getElementById('player-score');
     const computerScoreDisplay = document.getElementById('computer-score');
+
+    let currentRound = 1;
+    let totalRounds = 5;
+
+    const roundDisplay = document.getElementById('round');
     
     function getHumanChoice(choice){
         document.querySelector("#userChoice").innerText =
