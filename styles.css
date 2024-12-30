@@ -5,8 +5,13 @@ body{
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(to right, #56A,B2F,#a8e063);
-    color: #333;
+    background: red;
+    animation: my-move 3s infinite;
+}
+
+@keyframes my-move {
+    from {background-color: red;}
+    to {background-color: blue;}
 }
 
 #rps-app{
@@ -22,7 +27,7 @@ body{
 
 #choices button{
     padding: 15px 25px;
-    background-color: #4caf50;
+    background-color: red;
     color: white;
     border: none;
     border-radius: 5px;
@@ -41,5 +46,39 @@ body{
     margin-top: 20px;
     font-size: 24px;
     font-weight: bold;
+}
+
+#scoreboard{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#restart-btn{
+    padding: 15px 25px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+#restart-btn:hover{
+    background-color: #0056b3;
+}
+
+#player-score, #computer-score{
+    margin-right: 10px;
+}
+
+#game-info{
+    text-align: center;
+    margin-bottom: 20px;
+}
+#round{
+    font-size: 20px;
+    margin: 10px 0;
 }
 
